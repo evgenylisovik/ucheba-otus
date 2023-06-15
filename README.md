@@ -66,7 +66,7 @@ packer/
 #### В СТРОЧКУ УСТАНОВКИ ЯДРА ДОБАВЛЯЕМ УСТАНОВКУ ЗАГОЛОВОЧНЫХ ФАЙЛОВ, УТИЛИТ И БИБЛИОТЕК(БЕЗ НИХ ОТКАЗЫВАЮТСЯ РАБОТАТЬ ГОСТЕВЫЕ ДОПОЛНЕНИЯ)
 `yum --enablerepo elrepo-kernel install --allowerasing kernel-ml kernel-ml-devel kernel-ml-core kernel-ml-headers kernel-ml-tools kernel-ml-tools-libs -y
 `
-#### ТАКЖЕ УСТАНАВЛИВАЕМ УТИЛИТЫ ДЛЯ УСТАНОВКИ МОДУЛЕЙ ЯДРА# 
+#### ТАКЖЕ УСТАНАВЛИВАЕМ УТИЛИТЫ ДЛЯ УСТАНОВКИ МОДУЛЕЙ ЯДРА
 `yum install gcc make perl tar bzip2 -y
 `
 #### УДАЛЯЕМ МОДУЛИ СТАРОГО ЯДРА
