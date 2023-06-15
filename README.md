@@ -49,8 +49,8 @@ packer/
 
         ] ```
 #НЕМНОГО МЕНЯЕМ (НЕ ПОМНЮ ЗАЧЕМ)        
-```"execute_command": "echo 'vagrant'| {{.Vars}} sudo -S -E bash '{{.Path}}'"```
-         
+`"execute_command": "echo 'vagrant'| {{.Vars}} sudo -S -E bash '{{.Path}}'"`
+
 #МЕНЯЕМ СКРИПТЫ# 
 ##В СТРОЧКУ УСТАНОВКИ ЯДРА ДОБАВЛЯЕМ УСТАНОВКУ ЗАГОЛОВОЧНЫХ ФАЙЛОВ, УТИЛИТ И БИБЛИОТЕК(БЕЗ НИХ ОТКАЗЫВАЮТСЯ РАБОТАТЬ ГОСТЕВЫЕ ДОПОЛНЕНИЯ)
 ```yum --enablerepo elrepo-kernel install --allowerasing kernel-ml kernel-ml-devel kernel-ml-core kernel-ml-headers kernel-ml-tools kernel-ml-tools-libs -y```
