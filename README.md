@@ -20,7 +20,7 @@
 ├── scripts
 │   ├── stage-1-kernel-update.sh
 │   ├── stage-2-clean.sh
-│   └── stage-3-GuestAdditions.sh```
+│   └── stage-3-GuestAdditions.sh
 
 #В ФАЙЛЕ CENTOS.JSON МЕНЯЕМ ССЫЛКУ НА ОБРАЗ, Т.К. ССЫЛКА ИЗ МЕТОДИЧИКИ НЕРАБОЧАЯ:
 ```"iso_url": "http://centos-mirror.rbc.ru/pub/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230429.0-x86_64-boot.iso"```
