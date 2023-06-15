@@ -79,11 +79,11 @@ yum remove kernel-modules-4.18.0-492.el8.x86_64 kernel-core-4.18.0-492.el8.x86_6
 `
 ##### Создание папки для гостевых дополнений
 `
-##### sudo mkdir /media/GA
+sudo mkdir /media/GA
 `
 ##### Монтирование образа гостевых дополнений
 `
-##### sudo mount /home/vagrant/VBoxGuestAdditions.iso /media/GA
+sudo mount /home/vagrant/VBoxGuestAdditions.iso /media/GA
 `
 ##### Запуск установки гостевых дополнений
 `
