@@ -28,7 +28,7 @@ packer/
 "iso_url": "http://centos-mirror.rbc.ru/pub/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230429.0-x86_64-boot.iso"
 `
 #ТАКЖЕ МЕНЯЕМ КОНТРОЛЬНУЮ СУММУ:
-```"iso_checksum": "017e6f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26"```
+    "iso_checksum": "017e6f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26"
 #МЕНЯЕМ КОМАНДУ ВЫКЛЮЧЕНИЯ (УЖЕ НЕ ПОМНЮ ЗАЧЕМ)
 ```"shutdown_command": "echo 'vagrant' | sudo -S shutdown"``` 
 #СТАВИМ БОЛЬШЕЕ ЗНАЧЕНИЕ Т.К. PACKER СОБИРАЕТ НЕ БЫСТРО
