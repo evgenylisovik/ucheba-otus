@@ -13,7 +13,8 @@
 В образе нормально работают VirtualBox Shared Folders
 
 #СОЗДАЕМ СТРУКТУРУ КАТАЛОГОВ:
-```packer/
+```
+packer/
     └── centos.json                     
 ├── http
 │   └── ks.cfg                         
