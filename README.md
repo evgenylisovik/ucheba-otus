@@ -26,13 +26,13 @@ packer/
 ```"iso_url": "http://centos-mirror.rbc.ru/pub/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230429.0-x86_64-boot.iso"```
 
 #ТАКЖЕ МЕНЯЕМ КОНТРОЛЬНУЮ СУММУ:
-"iso_checksum": "017e6f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26"
+```"iso_checksum": "017e6f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26"```
 #МЕНЯЕМ КОМАНДУ ВЫКЛЮЧЕНИЯ (УЖЕ НЕ ПОМНЮ ЗАЧЕМ)
-"shutdown_command": "echo 'vagrant' | sudo -S shutdown"     
+```"shutdown_command": "echo 'vagrant' | sudo -S shutdown"``` 
 #СТАВИМ БОЛЬШЕЕ ЗНАЧЕНИЕ Т.К. PACKER СОБИРАЕТ НЕ БЫСТРО
-"ssh_timeout": "40m"
+```"ssh_timeout": "40m"```
 #ДОБАВЛЯЕМ КОНТРОЛЛЕР С GUEST ADDITIONS
-"vboxmanage": [
+```"vboxmanage": [
        [
           "storageattach",
           "{{.Name}}",
@@ -47,27 +47,27 @@ packer/
           "--medium",
           "/usr/share/virtualbox/VBoxGuestAdditions.iso"
 
-        ]   
+        ] ```
 #НЕМНОГО МЕНЯЕМ (НЕ ПОМНЮ ЗАЧЕМ)        
-"execute_command": "echo 'vagrant'| {{.Vars}} sudo -S -E bash '{{.Path}}'"        
-            
-#МЕНЯЕМ СКРИПТЫ 
-#В СТРОЧКУ УСТАНОВКИ ЯДРА ДОБАВЛЯЕМ УСТАНОВКУ ЗАГОЛОВОЧНЫХ ФАЙЛОВ, УТИЛИТ И БИБЛИОТЕК(БЕЗ НИХ ОТКАЗЫВАЮТСЯ РАБОТАТЬ ГОСТЕВЫЕ ДОПОЛНЕНИЯ)
-yum --enablerepo elrepo-kernel install --allowerasing kernel-ml kernel-ml-devel kernel-ml-core kernel-ml-headers kernel-ml-tools kernel-ml-tools-libs -y
+```"execute_command": "echo 'vagrant'| {{.Vars}} sudo -S -E bash '{{.Path}}'"```
+         
+#МЕНЯЕМ СКРИПТЫ# 
+##В СТРОЧКУ УСТАНОВКИ ЯДРА ДОБАВЛЯЕМ УСТАНОВКУ ЗАГОЛОВОЧНЫХ ФАЙЛОВ, УТИЛИТ И БИБЛИОТЕК(БЕЗ НИХ ОТКАЗЫВАЮТСЯ РАБОТАТЬ ГОСТЕВЫЕ ДОПОЛНЕНИЯ)
+```yum --enablerepo elrepo-kernel install --allowerasing kernel-ml kernel-ml-devel kernel-ml-core kernel-ml-headers kernel-ml-tools kernel-ml-tools-libs -y```
 
-#ТАКЖЕ УСТАНАВЛИВАЕМ УТИЛИТЫ ДЛЯ УСТАНОВКИ МОДУЛЕЙ ЯДРА 
-yum install gcc make perl tar bzip2 -y
+#ТАКЖЕ УСТАНАВЛИВАЕМ УТИЛИТЫ ДЛЯ УСТАНОВКИ МОДУЛЕЙ ЯДРА# 
+```yum install gcc make perl tar bzip2 -y```
 
 #УДАЛЯЕМ МОДУЛИ СТАРОГО ЯДРА
-yum remove kernel-modules-4.18.0-492.el8.x86_64 kernel-core-4.18.0-492.el8.x86_64 kernel-4.18.0-492.el8.x86_64 -y
+```yum remove kernel-modules-4.18.0-492.el8.x86_64 kernel-core-4.18.0-492.el8.x86_64 kernel-4.18.0-492.el8.x86_64 -y```
 
 #ДОБАВЛЯЕМ ЕЩЕ ОДИН СКРИПТ ДЛЯ УСТАНОВКИ ГОСТЕВЫХ ДОПОЛНЕНИЙ
-#!/bin/bash
-# Создание папки для гостевых дополнений
+```!/bin/bash
+Создание папки для гостевых дополнений
 sudo mkdir /media/GA
-# Монтирование образа гостевых дополнений
+Монтирование образа гостевых дополнений
 sudo mount /home/vagrant/VBoxGuestAdditions.iso /media/GA
-# Запуск установки гостевых дополнений
+Запуск установки гостевых дополнений
 sudo /media/GA/./VBoxLinuxAdditions.run
-# Перезагрузка ВМ
-shutdown -r now
+Перезагрузка ВМ
+shutdown -r now```
