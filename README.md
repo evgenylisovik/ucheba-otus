@@ -47,9 +47,9 @@ packer/
           "--medium",
           "/usr/share/virtualbox/VBoxGuestAdditions.iso"
 
-        ] ```
+        ]
 #НЕМНОГО МЕНЯЕМ (НЕ ПОМНЮ ЗАЧЕМ)        
-`"execute_command": "echo 'vagrant'| {{.Vars}} sudo -S -E bash '{{.Path}}'"`
+```"execute_command": "echo 'vagrant'| {{.Vars}} sudo -S -E bash '{{.Path}}'"```
 
 #МЕНЯЕМ СКРИПТЫ# 
 ##В СТРОЧКУ УСТАНОВКИ ЯДРА ДОБАВЛЯЕМ УСТАНОВКУ ЗАГОЛОВОЧНЫХ ФАЙЛОВ, УТИЛИТ И БИБЛИОТЕК(БЕЗ НИХ ОТКАЗЫВАЮТСЯ РАБОТАТЬ ГОСТЕВЫЕ ДОПОЛНЕНИЯ)
