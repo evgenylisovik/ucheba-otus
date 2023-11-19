@@ -1,6 +1,4 @@
-<font color="blue">
-"VAGRANT-СТЕНД ДЛЯ ОБНОВЛЕНИЯ ЯДРА И СОЗДАНИЯ ОБРАЗА СИСТЕМЫ"
-</font>
+VAGRANT-СТЕНД ДЛЯ ОБНОВЛЕНИЯ ЯДРА И СОЗДАНИЯ ОБРАЗА СИСТЕМЫ
 
 ####             ЦЕЛЬ ДОМАШНЕГО ЗАДАНИЯ:
 Научиться обновлять ядро в ОС Linux. Получение навыков работы с Vagrant, Packer и публикацией готовых образов в Vagrant Cloud. 
@@ -25,23 +23,23 @@ packer/
 │   ├── stage-2-clean.sh
 │   └── stage-3-GuestAdditions.sh
 ```
-### В ФАЙЛЕ CENTOS.JSON МЕНЯЕМ ССЫЛКУ НА ОБРАЗ, Т.К. ССЫЛКА ИЗ МЕТОДИЧИКИ НЕРАБОЧАЯ:
+#### В ФАЙЛЕ CENTOS.JSON МЕНЯЕМ ССЫЛКУ НА ОБРАЗ, Т.К. ССЫЛКА ИЗ МЕТОДИЧИКИ НЕРАБОЧАЯ:
 `
 "iso_url": "http://centos-mirror.rbc.ru/pub/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230429.0-x86_64-boot.iso"
 `
-### ТАКЖЕ МЕНЯЕМ КОНТРОЛЬНУЮ СУММУ:
+#### ТАКЖЕ МЕНЯЕМ КОНТРОЛЬНУЮ СУММУ:
 `
 "iso_checksum": "017e6f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26"
 `
-### МЕНЯЕМ КОМАНДУ ВЫКЛЮЧЕНИЯ (УЖЕ НЕ ПОМНЮ ЗАЧЕМ)
+#### МЕНЯЕМ КОМАНДУ ВЫКЛЮЧЕНИЯ (УЖЕ НЕ ПОМНЮ ЗАЧЕМ)
 `
 "shutdown_command": "echo 'vagrant' | sudo -S shutdown"
 `
-### СТАВИМ БОЛЬШЕЕ ЗНАЧЕНИЕ Т.К. PACKER СОБИРАЕТ НЕ БЫСТРО
+#### СТАВИМ БОЛЬШЕЕ ЗНАЧЕНИЕ Т.К. PACKER СОБИРАЕТ НЕ БЫСТРО
 `
 "ssh_timeout": "40m"
 `
-### ДОБАВЛЯЕМ КОНТРОЛЛЕР С GUEST ADDITIONS
+#### ДОБАВЛЯЕМ КОНТРОЛЛЕР С GUEST ADDITIONS
 ```
 "vboxmanage": [
        [
@@ -60,11 +58,11 @@ packer/
 
         ]
 ```
-### НЕМНОГО МЕНЯЕМ (НЕ ПОМНЮ ЗАЧЕМ)        
+#### НЕМНОГО МЕНЯЕМ (НЕ ПОМНЮ ЗАЧЕМ)        
 `
 "execute_command": "echo 'vagrant'| {{.Vars}} sudo -S -E bash '{{.Path}}'"
 `
-### МЕНЯЕМ СКРИПТЫ 
+#### МЕНЯЕМ СКРИПТЫ 
 #### В СТРОЧКУ УСТАНОВКИ ЯДРА ДОБАВЛЯЕМ УСТАНОВКУ ЗАГОЛОВОЧНЫХ ФАЙЛОВ, УТИЛИТ И БИБЛИОТЕК(БЕЗ НИХ ОТКАЗЫВАЮТСЯ РАБОТАТЬ ГОСТЕВЫЕ ДОПОЛНЕНИЯ)
 `yum --enablerepo elrepo-kernel install --allowerasing kernel-ml kernel-ml-devel kernel-ml-core kernel-ml-headers kernel-ml-tools kernel-ml-tools-libs -y
 `
